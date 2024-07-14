@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Answer Feedback</title>
+  <style>
+    body {
+      background-color: red;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: white;
+      color: red;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #eee;
+    }
+    .gold-background {
+      background-color: gold;
+    }
+    .green-background {
+      background-color: green;
+    }
+    .answer-options {
+      margin-top: 20px;
+    }
+    .answer-options button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: white;
+      color: gold;
+      border: none;
+      cursor: pointer;
+    }
+    .answer-options button:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div id="feedback">
+    <h1>YOUR ANSWER IS WRONG!</h1>
+    <p>Please click the refresh button.</p>
+  
+    <button onclick="refreshPage()">Refresh</button>
+  </div>
+
+  <div id="answerOptions" class="answer-options" style="display: none;">
+    <h1>Choose your answer</h1>
+    <button onclick="selectAnswer('Yes')">Answer 1: Yes</button>
+    <button onclick="selectAnswer('No')">Answer 2: No</button>
+  </div>
+
+  <script>
+    function refreshPage() {
+      // Change background to gold
+      document.body.style.backgroundColor = "gold";
+      
+      // Hide feedback section and show answer options
+      document.getElementById("feedback").style.display = "none";
+      document.getElementById("answerOptions").style.display = "block";
+    }
+
+    function selectAnswer(answer) {
+      if (answer === 'Yes') {
+        // Change background to green
+        document.body.style.backgroundColor = "green";
+        // Display right answer message
+        document.getElementById("answerOptions").innerHTML = "<h1>Right answer, good job!</h1>";
+      } else {
+        // Placeholder for handling other answers (if needed)
+        alert("You selected: " + answer);
+      }
+    }
+  </script>
+</body>
+</html>
